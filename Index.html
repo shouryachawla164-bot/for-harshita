@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Harshita ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  color: white;
+  margin-top: 30px;
+  font-size: 32px;
+}
+
+p {
+  color: white;
+}
+
+/* cards */
+.card {
+  background: #eee;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  max-width: 320px;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
+
+.close {
+  margin-top: 15px;
+  padding: 10px 18px;
+  border: none;
+  background: pink;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* hearts animation */
+.heart {
+  position: fixed;
+  color: red;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  from {transform: translateY(100vh);}
+  to {transform: translateY(-10vh);}
+}
+</style>
+
+</head>
+<body>
+
+<h1>Hey Harshita ❤️</h1>
+<p>This is something special only for you 💕</p>
+
+<div class="card" onclick="openPopup('about')">
+  <h2>About You ✨</h2>
+</div>
+
+<div class="card" onclick="openPopup('love')">
+  <h2>What I Love About You ❤️</h2>
+</div>
+
+<div class="card" onclick="openPopup('memory')">
+  <h2>Our Memories 📸</h2>
+</div>
+
+<div class="card" onclick="openPopup('message')">
+  <h2>A Message For You 💌</h2>
+</div>
+
+<!-- popup -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <p id="popupText"></p>
+    <button class="close" onclick="closePopup()">Close ❤️</button>
+  </div>
+</div>
+
+<script>
+function openPopup(type){
+  let text = "";
+
+  if(type === "about"){
+    text = "Tum sirf ek ladki nahi ho… tum meri life ka sabse beautiful part ho ❤️ Tumhari smile dekhte hi mera pura din ban jata hai 😊 Tumhari baaton me ek alag hi sukoon hai… jaise sab problems gayab ho jati ho 🥺 Tum perfect nahi ho… par mere liye tumse perfect koi nahi 💕 Tum meri habit ban chuki ho… bina tumhare sab kuch adhura lagta hai ❤️✨";
+  }
+
+  if(type === "love"){
+    text = "Mujhe tumhari har ek cheez pasand hai ❤️ Tumhara smile, tumhara gussa, tumhara care karna 😅 Jab tum thoda sa bhi attention deti ho na… woh moment sabse special lagta hai 🥺💕 Tumhari voice, tumhari vibe… sab kuch itna pure hai ❤️ Aur sabse important… mujhe yeh pasand hai ki tum meri ho 😌💖";
+  }
+
+  if(type === "memory"){
+    text = "Jab tumne pehli baar khud se message kiya tha… us din se meri life change ho gayi ❤️ Woh ek simple moment mere liye sabse special ban gaya 🥺 Har chat, har call, har choti si baat… sab yaad hai mujhe 💕 Aur main future me bhi aur memories banana chahta hoon… sirf tumhare saath 😌❤️";
+  }
+
+  if(type === "message"){
+    text = "Main perfect nahi hoon… par tumhe khush rakhne ki puri koshish karunga ❤️ Kabhi ladenge, kabhi hasenge… par main hamesha tumhare saath rahunga 🥺 Tum meri life ka wo part ho jise main kabhi lose nahi karna chahta 💕 Bas ek promise karo… chahe kuch bhi ho jaye, mujhe chhod ke mat jana ❤️✨";
+  }
+
+  document.getElementById("popupText").innerText = text;
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
+
+/* floating hearts */
+setInterval(()=>{
+  let heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.className = "heart";
+  heart.style.left = Math.random()*100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{heart.remove();},5000);
+},300);
+</script>
+
+</body>
+</html>
